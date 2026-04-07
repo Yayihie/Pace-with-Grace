@@ -122,6 +122,9 @@ window.addEventListener('scroll', () => {
         const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
 
         if (navLink) {
+            // Exclude the CTA button to prevent black text on black background
+            if (navLink.classList.contains('nav-link-cta')) return;
+
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 navLink.style.color = 'var(--color-text-primary)';
             } else {
